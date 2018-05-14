@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from "@angular/core";
 import {
 	STARK_HTTP_SERVICE,
 	STARK_LOGGING_SERVICE,
+	STARK_SESSION_SERVICE,
 	StarkBackend,
 	StarkBackendAuthenticationTypes,
 	StarkCollectionResponseWrapper,
@@ -13,7 +14,9 @@ import {
 	StarkHttpService,
 	StarkLoggingService,
 	StarkQueryParam,
-	StarkSingleItemResponseWrapper
+	StarkSessionService,
+	StarkSingleItemResponseWrapper,
+	StarkUser
 } from "@nationalbankbelgium/stark-core";
 import { Observable } from "rxjs/Observable";
 
@@ -54,7 +57,8 @@ export class HomeComponent implements OnInit {
 		public appState: AppState,
 		public title: Title,
 		@Inject(STARK_HTTP_SERVICE) public httpService: StarkHttpService<any>,
-		@Inject(STARK_LOGGING_SERVICE) public loggingService: StarkLoggingService
+		@Inject(STARK_LOGGING_SERVICE) public loggingService: StarkLoggingService,
+		@Inject(STARK_SESSION_SERVICE) public sessionService: StarkSessionService
 	) {}
 
 	public ngOnInit(): void {
@@ -62,6 +66,18 @@ export class HomeComponent implements OnInit {
 		/**
 		 * this.title.getData().subscribe(data => this.data = data);
 		 */
+		this.loginUser();
+	}
+
+	public loginUser(): void {
+		const user: StarkUser = {
+			uuid: "abc123",
+			username: "John",
+			firstName: "Doe",
+			lastName: "Smith",
+			roles: ["dummy role"]
+		};
+		this.sessionService.login(user);
 	}
 
 	public submitState(value: string): void {

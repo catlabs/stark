@@ -9,7 +9,7 @@
 			"outDir": "dist",
 			"assets": [],
 			"test": "base.spec.ts",
-			"tsconfig": "tsconfig-build.json",
+			"tsconfig": "tsconfig.json",
 			"testTsconfig": "tsconfig.spec.json"
 		}
 	]
