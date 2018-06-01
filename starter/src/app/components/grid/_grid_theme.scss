@@ -1,0 +1,5 @@
+@mixin spark-grid-theme($theme) {
+  .stark-grid table {
+    border-radius: map-get($theme, border-radius);
+  }
+}

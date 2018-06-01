@@ -2,19 +2,15 @@ import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { StarkAppLogoComponent } from "./components";
+import { StarkBreadcrumbComponent } from "./components";
 
 @NgModule({
-	declarations: [StarkAppLogoComponent],
-	exports: [
-		StarkAppLogoComponent,
-		MatButtonModule,
-		MatCardModule
-	],
+	declarations: [StarkBreadcrumbComponent],
+	exports: [StarkBreadcrumbComponent],
 	imports: [
 		BrowserAnimationsModule,
 		MatButtonModule,
 		MatCardModule
 	],
 })
-export class StarkAppLogoModule {}
+export class StarkBreadcrumbModule {}

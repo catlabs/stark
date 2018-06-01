@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500,700");
+@import "~@angular/material/theming";
+
+//use stark prefix
+$color-primary: mat-palette($mat-deep-purple, 500, 900, 50);
+$color-accent: mat-palette($mat-pink, 400);
+$color-warn: mat-palette($mat-red, 900);
+$spark-color-theme: mat-light-theme($color-primary, $color-accent, $color-warn);
+
+//Theme shared components
+$border-radius: 2px;
+
+//font-size, line-height, font-weight
+$spark-typography-theme: (
+  font-family: '"Oswald", sans-serif',
+  headline: (90px, 48px, 400),
+  body-1: (14px, 20px, 400),
+  body-2: (14px, 24px, 500),
+  button: (12px, 14px, 500),
+  caption: (12px, 20px, 400)
+);
+
+$spark-button-theme: (
+  border-radius: $border-radius,
+  padding: 0px 10px
+);
+
+$spark-grid-theme: (border-radius: $border-radius);
+
+@import "~@nationalbankbelgium/stark-ui/assets/themes/theming";
+
+//Starter components
+@import "./../app/components/grid/grid_theme";
+@include spark-grid-theme($spark-grid-theme);

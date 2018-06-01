@@ -1,43 +1,61 @@
-<nav>
-	<a uiSref="index"
-	   uiSrefActive="active">
-		Index
-	</a>
-	<a uiSref="home"
-	   uiSrefActive="active">
-		Home
-	</a>
-	<a uiSref="detail"
-	   uiSrefActive="active">
-		Detail
-	</a>
-	<a uiSref="barrel"
-	   uiSrefActive="active">
-		Barrel
-	</a>
-	<a uiSref="about" [uiParams]="{ paramData: 'data passed via params' }"
-	   uiSrefActive="active">
-		About
-	</a>
-	<a *ngIf="showDevModule" uiSref="devModuleDefault"
-	   uiSrefActive="active">
-		DevModule
-	</a>
-</nav>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+		<mat-nav-list class="nav-main">
+			<a mat-list-item uiSref="index" uiSrefActive="active">
+					<a matLine>Index</a>
+			</a>
+			<a mat-list-item uiSref="home" uiSrefActive="active">
+				<a matLine>Home</a>
+				<button mat-icon-button (click)="showInfo(link)">
+					 <mat-icon>home</mat-icon>
+				</button>
+			</a>
+		 	<a mat-list-item uiSref="detail" uiSrefActive="active">
+				<a matLine>Detail</a>
+				<button mat-icon-button (click)="showInfo(link)">
+				 <mat-icon>detail</mat-icon>
+				</button>
+			</a>
+		</mat-nav-list>
+	</mat-sidenav>
+  <mat-sidenav-content class="p4">
+		<div fxLayout='row' fxLayoutGap="4%" class="mb3">
+			<mat-card fxFlex="48">
+				<h1>Starter Angular components</h1>
+				<div fxLayout='row wrap' fxLayoutGap="10px">
+					<button mat-raised-button>Basic</button>
+					<button mat-raised-button color="primary">Primary</button>
+					<button mat-raised-button color="accent">Accent</button>
+					<button mat-raised-button color="warn">Warn</button>
+					<button mat-raised-button disabled>Disabled</button>
+				</div>
+			</mat-card>
 
-<stark-app-logo></stark-app-logo>
+			<mat-card fxFlex="48">
+				<h1>Stark component</h1>
+				
+			</mat-card>
+		</div>
+		<!--<stark-breadcrumb></stark-breadcrumb>-->
+		<mat-card>
+			<h1>Stark grid</h1>
+			<stark-grid></stark-grid>
+		</mat-card>
 
-<main>
-	<ui-view></ui-view>
-</main>
+		<main>
+			<ui-view></ui-view>
+		</main>
 
-<pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+		<pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
-<footer>
-	<span>Angular Starter by <a [href]="twitter">@gdi2290</a></span>
-	<div>
-		<a [href]="url">
-			<img [src]="tipe" width="25%">
-		</a>
-	</div>
-</footer>
+		<footer>
+			<span>Angular Starter by <a [href]="twitter">@gdi2290</a></span>
+			<div>
+				<a [href]="url">
+					<img [src]="tipe" width="25%">
+				</a>
+			</div>
+		</footer>
+
+	</mat-sidenav-content>
+</mat-sidenav-container>

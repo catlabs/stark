@@ -1,0 +1,23 @@
+.stark-grid table {
+  width: 100%;
+}
+
+.stark-grid .mat-sort-header-container {
+  height: 100%;
+}
+
+.stark-grid .mat-header-cell-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+.stark-grid .mat-header-cell-content .mat-sort-header {
+  align-self: stretch;
+  flex: 1 1 0%;
+}
+
+.mat-grid-filter {
+  padding: 0 10px;
+}

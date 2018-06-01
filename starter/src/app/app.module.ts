@@ -5,9 +5,18 @@ import { UIRouterModule } from "@uirouter/angular";
 import { NgIdleModule } from "@ng-idle/core";
 import { NgIdleKeepaliveModule } from "@ng-idle/keepalive";
 import { ActionReducer, ActionReducerMap, MetaReducer, StoreModule } from "@ngrx/store";
-import { storeFreeze } from "ngrx-store-freeze";
+//import { storeFreeze } from "ngrx-store-freeze";
 import { storeLogger } from "ngrx-store-logger";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
+import { MatListModule } from "@angular/material/list";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { FlexLayoutModule } from "@angular/flex-layout";
+
+import { StarkGridModule } from "./components/grid/grid.module";
+//import { StarkGridModule } from "@nationalbankbelgium/stark-ui";
 
 import {
 	STARK_APP_CONFIG,
@@ -27,7 +36,6 @@ import {
 	StarkUser
 } from "@nationalbankbelgium/stark-core";
 
-import { StarkAppLogoModule } from "@nationalbankbelgium/stark-ui";
 import { routerConfigFn } from "./router.config";
 import { Deserialize } from "cerialize";
 /*
@@ -108,7 +116,7 @@ export function logger(reducer: ActionReducer<State>): any {
 	return storeLogger()(reducer);
 }
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [logger, storeFreeze] : [];
+export const metaReducers: MetaReducer<State>[] = [];
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstrapping process
@@ -122,6 +130,7 @@ export const metaReducers: MetaReducer<State>[] = !environment.production ? [log
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
+		FlexLayoutModule,
 		FormsModule,
 		StoreModule.forRoot(reducers, {
 			metaReducers
@@ -139,7 +148,12 @@ export const metaReducers: MetaReducer<State>[] = !environment.production ? [log
 		StarkLoggingModule.forRoot(),
 		StarkSessionModule.forRoot(),
 		StarkRoutingModule.forRoot(),
-		StarkAppLogoModule,
+		MatButtonModule,
+		MatCardModule,
+		MatIconModule,
+		MatListModule,
+		MatSidenavModule,
+		StarkGridModule,
 
 		/**
 		 * This section will import the `DevModuleModule` only in certain build types.

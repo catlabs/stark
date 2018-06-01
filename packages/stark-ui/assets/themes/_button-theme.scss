@@ -1,0 +1,6 @@
+@mixin spark-button-theme($theme) {
+  button[mat-raised-button], a[mat-raised-button]{
+    border-radius: map-get($theme, border-radius);
+    padding: map-get($theme, padding);
+  }
+}

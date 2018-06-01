@@ -1,11 +1,11 @@
 import { Component, Inject, Input, OnInit, ViewEncapsulation } from "@angular/core";
 import { STARK_LOGGING_SERVICE, STARK_ROUTING_SERVICE, StarkLoggingService, StarkRoutingService } from "@nationalbankbelgium/stark-core";
 
-const componentName: string = "stark-app-logo";
+const componentName: string = "stark-breadcrumb";
 
 /**
  * @ngdoc component
- * @name stark-ui.component:starkAppLogo
+ * @name stark-ui.component:starkBreadcrumb
  * @description Component to display the application's logo
  *
  * @scope
@@ -14,16 +14,16 @@ const componentName: string = "stark-app-logo";
  * @input {object} homeStateParams (optional) Params object to be passed to the UI router state defined as homeState.
  */
 // FIXME: tslint rules temporarily disabled. Enable them once we decide the final implementation of component styles
-/* tslint:disable:enforce-component-selector use-view-encapsulation use-host-property-decorator */
+/* tslint:disable:enforce-component-selector max-inline-declarations use-view-encapsulation use-host-property-decorator */
 @Component({
 	selector: componentName,
-	templateUrl: "./app-logo.component.html",
+	templateUrl: "./breadcrumb.component.html",
 	encapsulation: ViewEncapsulation.None,
-	styleUrls: ['./app-logo.component.scss'],
-	host: { class: "stark-app-logo" }
+	styleUrls: ["./breadcrumb.component.scss"],
+	host: { class: "stark-breadcrumb" }
 })
 /* tslint:enable */
-export class StarkAppLogoComponent implements OnInit {
+export class StarkBreadcrumbComponent implements OnInit {
 	@Input() public homeStateParams?: { [property: string]: any };
 
 	public constructor(
@@ -38,6 +38,13 @@ export class StarkAppLogoComponent implements OnInit {
 	 */
 	public ngOnInit(): void {
 		this.logger.debug(componentName + ": controller initialized");
+		//console.log(this.routingService.getStateTreeParams());
+		//const stateTreeParams: Map<string, any> = this.routingService.getStateTreeParams();
+		//console.log(stateTreeParams);
+
+		/*stateTreeParams.forEach((stateParams: any, stateName: string) => {
+			const stateTranslationKey: string = this.routingService.getTranslationKeyFromState(stateName);
+		});*/
 	}
 
 	public logoClickHandler($event: Event): void {
