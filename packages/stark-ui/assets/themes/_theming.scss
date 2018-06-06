@@ -7,8 +7,8 @@
 @include mat-core($typography-config);
 
 //Colors
-$spark-color-theme: mat-light-theme(mat-palette($mat-indigo), mat-palette($mat-green), mat-palette($mat-red)) !default;
-@include angular-material-theme($spark-color-theme);
+$stark-color-theme: mat-light-theme(mat-palette($mat-indigo), mat-palette($mat-green), mat-palette($mat-red)) !default;
+@include angular-material-theme($stark-color-theme);
 
 //Button
 @import 'button-theme';
@@ -16,21 +16,21 @@ $button-theme: (
   border-radius: 2px,
   padding: 0px 10px
 ) ;
-@if variable-exists(spark-button-theme) {
-  $button-theme: map-merge($button-theme, $spark-button-theme);
+@if variable-exists(stark-button-theme) {
+  $button-theme: map-merge($button-theme, $stark-button-theme);
 }
-@include spark-button-theme($button-theme);
+@include stark-button-theme($button-theme);
 
 //Card
 /*@import 'card-theme';
-@include spark-card-theme($global-theme);*/
+@include stark-card-theme($global-theme);*/
 
 //Grid
 @import 'grid-theme';
 $grid-theme: (
   border-radius: 2px
 );
-@if variable-exists(spark-grid-theme) {
-  $grid-theme: map-merge($grid-theme, $spark-grid-theme);
+@if variable-exists(stark-grid-theme) {
+  $grid-theme: map-merge($grid-theme, $stark-grid-theme);
 }
-@include spark-grid-theme($grid-theme);
+@include stark-grid-theme($grid-theme);

@@ -25,8 +25,8 @@ $typography-theme: (
   input:          (inherit, 1.125, 400)
 );
 
-@if variable-exists(spark-typography-theme) {
-  $typography-theme: map-merge($typography-theme, $spark-typography-theme);
+@if variable-exists(stark-typography-theme) {
+  $typography-theme: map-merge($typography-theme, $stark-typography-theme);
 }
 
 $typography-config: mat-typography-config(
