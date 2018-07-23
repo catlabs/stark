@@ -1,18 +1,17 @@
-import {
-	MatButtonModule,
-	MatCardModule,
-	MatCheckboxModule,
-	MatDividerModule,
-	MatIconModule,
-	MatTabsModule,
-	MatTooltipModule,
-	MatSnackBarModule,
-	MatFormFieldModule,
-	MatInputModule
-} from "@angular/material";
-import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import { MAT_DATE_FORMATS } from "@angular/material/core";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatIconModule } from "@angular/material/icon";
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 import { TranslateModule } from "@ngx-translate/core";
 import { ActionBarComponent } from "./action-bar/action-bar.component";
 import { DemoBreadcrumbComponent } from "./breadcrumb/breadcrumb.component";
@@ -26,9 +25,10 @@ import { ExampleViewerComponent } from "./example-viewer/example-viewer.componen
 import { HeaderComponent } from "./header/header.component";
 import { KeyboardDirectivesComponent } from "./keyboard-directives/keyboard-directives.component";
 import { LogoutComponent } from "./logout/logout.component";
+import { DemoPaginationComponent } from "./pagination/demo-pagination.component";
 import { DemoPrettyPrintComponent } from "./pretty-print/demo-pretty-print.component";
 import { SliderComponent } from "./slider/slider.component";
-import { TableComponent } from "./table/table.component";
+import { DemoTableComponent } from "./table/demo-table.component";
 import { DemoTypographyComponent } from "./typography/demo-typography.component";
 import { SharedModule } from "../shared/shared.module";
 import {
@@ -40,12 +40,12 @@ import {
 	StarkDateRangePickerModule,
 	StarkDropdownModule,
 	StarkKeyboardDirectivesModule,
+	StarkPaginationModule,
 	StarkPrettyPrintModule,
 	StarkSliderModule,
 	StarkSvgViewBoxModule,
 	StarkTableModule
 } from "@nationalbankbelgium/stark-ui";
-import { MAT_DATE_FORMATS } from "@angular/material/core";
 
 @NgModule({
 	imports: [
@@ -67,6 +67,7 @@ import { MAT_DATE_FORMATS } from "@angular/material/core";
 		StarkBreadcrumbModule,
 		StarkDropdownModule,
 		StarkKeyboardDirectivesModule,
+		StarkPaginationModule,
 		StarkPrettyPrintModule,
 		StarkDatePickerModule,
 		StarkDateRangePickerModule,
@@ -88,6 +89,7 @@ import { MAT_DATE_FORMATS } from "@angular/material/core";
 		HeaderComponent,
 		KeyboardDirectivesComponent,
 		LogoutComponent,
+		DemoPaginationComponent,
 		DemoPrettyPrintComponent,
 		SliderComponent,
 		DatePickerComponent,
@@ -95,7 +97,7 @@ import { MAT_DATE_FORMATS } from "@angular/material/core";
 		DemoSidebarComponent,
 		ExampleViewerComponent,
 		KeyboardDirectivesComponent,
-		TableComponent
+		DemoTableComponent
 	],
 	exports: [
 		ActionBarComponent,
@@ -110,9 +112,10 @@ import { MAT_DATE_FORMATS } from "@angular/material/core";
 		HeaderComponent,
 		KeyboardDirectivesComponent,
 		LogoutComponent,
+		DemoPaginationComponent,
 		DemoPrettyPrintComponent,
 		SliderComponent,
-		TableComponent
+		DemoTableComponent
 	],
 	providers: [{ provide: MAT_DATE_FORMATS, useValue: STARK_DATE_FORMATS }]
 })

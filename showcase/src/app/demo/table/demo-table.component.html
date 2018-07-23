@@ -1,0 +1,49 @@
+<mat-card class="shadowed">
+	<stark-table htmlId="table-regular"
+				 [columnProperties]="columnsProperties"
+				 [customTableActions]="customTableActions"
+				 [data]="dummyData"
+				 [filter]="filter"
+				 [multiselect]="true"
+				 multiSort
+				 [orderProperties]="orderProperties"
+				 [tableRowsActionBarConfig]="tableRowsActionBarConfig"
+				 [paginationConfig]="paginationConfig1">
+		<header><h1>Table with regular action bar</h1></header>
+	</stark-table>
+</mat-card>
+
+<mat-card class="mt3">
+	<stark-table htmlId="table-with-alternative-action-bar"
+				 [columnProperties]="columnsProperties"
+				 [customTableActions]="customTableActions"
+				 customTableActionsType="alt"
+				 [data]="dummyData"
+				 [filter]="filter"
+				 [multiselect]="true"
+				 multiSort
+				 [orderProperties]="orderProperties"
+				 [tableRowsActionBarConfig]="tableRowsActionBarConfig"
+				 [paginationConfig]="paginationConfig2">
+		<header><h1>Table with alternative action bar</h1></header>
+	</stark-table>
+</mat-card>
+
+<mat-card class="mt3">
+	<stark-table htmlId="table-with-transcluded-action-bar"
+				 [columnProperties]="columnsProperties"
+				 [data]="dummyData"
+				 [filter]="filter"
+				 [multiselect]="true"
+				 multiSort
+				 [orderProperties]="orderProperties"
+				 [tableRowsActionBarConfig]="tableRowsActionBarConfig"
+				 [paginationConfig]="paginationConfig3">
+		<header>
+			<div class="example-transcluded">
+				<h1>Table with transcluded action bar</h1>
+				<stark-action-bar [actionBarConfig]="{actions: customTableActions}" mode="compact"></stark-action-bar>
+			</div>
+		</header>
+	</stark-table>
+</mat-card>

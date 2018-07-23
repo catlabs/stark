@@ -93,6 +93,14 @@
         "LOGOUT_DEFAULT_ICON": "Logout button - Default icon",
         "LOGOUT_CUSTOM_ICON": "Logout button - Custom icon"
       },
+      "PAGINATION": {
+        "ADVANCED_CONFIGURATION": "Pagination with advanced configuration",
+        "COMPACT_CONFIGURATION": "Pagination in compact mode",
+        "EMITTED_PAGINATE_EVENT": "Emitted paginate event",
+        "EXTENDED_CONFIGURATION": "Pagination with extended page selector",
+        "SIMPLE_CONFIGURATION": "Pagination with simple configuration",
+        "TITLE": "Stark Pagination"
+      },
       "PRETTY-PRINT": {
         "CSS": "Pretty-Print CSS",
         "ENABLE_HIGHLIGHTING": "Enable highlighting",

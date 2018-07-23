@@ -93,6 +93,14 @@
         "LOGOUT_DEFAULT_ICON": "Logout-knop - Standaard pictogram",
         "LOGOUT_CUSTOM_ICON": "Logout-knop - Aangepast pictogram"
       },
+      "PAGINATION": {
+        "ADVANCED_CONFIGURATION": "Pagination met geavanceerde configuratie",
+        "COMPACT_CONFIGURATION": "Pagination in compacte modus",
+        "EMITTED_PAGINATE_EVENT": "Verzonden Paginate event",
+        "EXTENDED_CONFIGURATION": "Pagination met uitgebreide paginakiezer",
+        "SIMPLE_CONFIGURATION": "Pagination met eenvoudige configuratie",
+        "TITLE": "Stark Pagination"
+      },
       "PRETTY-PRINT": {
         "CSS": "Pretty-Print CSS",
         "ENABLE_HIGHLIGHTING": "Highlighting activeren",
