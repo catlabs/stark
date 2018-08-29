@@ -8,6 +8,7 @@ import {
 	ExampleViewerComponent,
 	HeaderComponent,
 	KeyboardDirectivesComponent,
+	MasksComponent,
 	PrettyPrintComponent,
 	TableComponent,
 	LogoutComponent
@@ -29,6 +30,7 @@ export const APP_STATES: Ng2StateDeclaration[] = [
 	{ name: "demo-example-viewer", url: "/demo/example-viewer", component: ExampleViewerComponent },
 	{ name: "demo-keyboard-directives", url: "/demo/keyboard-directives", component: KeyboardDirectivesComponent },
 	{ name: "demo-logout", url: "/demo/logout", component: LogoutComponent },
+	{ name: "demo-masks", url: "/demo/masks", component: MasksComponent },
 	{ name: "demo-pretty-print", url: "/demo/pretty-print", component: PrettyPrintComponent },
 	{ name: "demo-table", url: "/demo/table", component: TableComponent },
 	{ name: "demo-dropdown", url: "/demo/dropdown", component: DropdownComponent },

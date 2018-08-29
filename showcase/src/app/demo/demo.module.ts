@@ -11,7 +11,7 @@ import {
 } from "@angular/material";
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TranslateModule } from "@ngx-translate/core";
 import { ActionBarComponent } from "./action-bar/action-bar.component";
 import { DemoBreadcrumbComponent } from "./breadcrumb/breadcrumb.component";
@@ -23,6 +23,7 @@ import { LogoutComponent } from "./logout/logout.component";
 import { ExampleViewerComponent } from "./example-viewer/example-viewer.component";
 import { HeaderComponent } from "./header/header.component";
 import { KeyboardDirectivesComponent } from "./keyboard-directives/keyboard-directives.component";
+import { MasksComponent } from "./masks/masks.component";
 import { PrettyPrintComponent } from "./pretty-print/pretty-print.component";
 import { TableComponent } from "./table/table.component";
 import { SharedModule } from "../shared/shared.module";
@@ -34,6 +35,7 @@ import {
 	StarkDateRangePickerModule,
 	StarkDropdownModule,
 	StarkKeyboardDirectivesModule,
+	StarkMasksModule,
 	StarkPrettyPrintModule,
 	StarkSliderModule,
 	StarkTableModule,
@@ -56,11 +58,13 @@ import { MAT_DATE_FORMATS } from "@angular/material/core";
 		MatSnackBarModule,
 		MatTabsModule,
 		TranslateModule,
+		ReactiveFormsModule,
 		SharedModule,
 		StarkActionBarModule,
 		StarkBreadcrumbModule,
 		StarkDropdownModule,
 		StarkKeyboardDirectivesModule,
+		StarkMasksModule,
 		StarkPrettyPrintModule,
 		StarkDatePickerModule,
 		StarkDateRangePickerModule,
@@ -78,6 +82,7 @@ import { MAT_DATE_FORMATS } from "@angular/material/core";
 		ExampleViewerComponent,
 		HeaderComponent,
 		KeyboardDirectivesComponent,
+		MasksComponent,
 		PrettyPrintComponent,
 		DatePickerComponent,
 		DateRangePickerComponent,
@@ -96,6 +101,7 @@ import { MAT_DATE_FORMATS } from "@angular/material/core";
 		ExampleViewerComponent,
 		HeaderComponent,
 		KeyboardDirectivesComponent,
+		MasksComponent,
 		PrettyPrintComponent,
 		TableComponent
 	],

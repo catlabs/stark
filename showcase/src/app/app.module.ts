@@ -1,6 +1,6 @@
 import { Inject, NgModule, NgModuleFactoryLoader, SystemJsNgModuleLoader } from "@angular/core";
 import { BrowserModule, DomSanitizer } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UIRouterModule } from "@uirouter/angular";
 import { NgIdleModule } from "@ng-idle/core";
 import { NgIdleKeepaliveModule } from "@ng-idle/keepalive";
@@ -144,6 +144,7 @@ export const metaReducers: MetaReducer<State>[] = ENV !== "production" ? [logger
 		BrowserModule,
 		BrowserAnimationsModule,
 		FormsModule,
+		ReactiveFormsModule,
 		MatButtonModule,
 		MatCardModule,
 		MatIconModule,

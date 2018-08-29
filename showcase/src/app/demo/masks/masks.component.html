@@ -1,0 +1,6 @@
+<mat-card>
+	<!--<input type="text" [(ngModel)]="name" [starkTimestampMask]="'mask'">-->
+	<br>
+	<input type="text" [formControl]="titleFormControl" [starkTimestampMask]="'mask'">
+	{{ titleFormControl.value }}
+</mat-card>

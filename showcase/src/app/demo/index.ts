@@ -7,6 +7,7 @@ export * from "./dropdown";
 export * from "./example-viewer";
 export * from "./header";
 export * from "./keyboard-directives";
+export * from "./masks";
 export * from "./pretty-print";
 export * from "./table";
 export * from "./demo.module";

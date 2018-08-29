@@ -1,14 +1,24 @@
 {
   "extends": "./node_modules/@nationalbankbelgium/stark-build/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "..",
     "outDir": "./dist",
     "declaration": false,
     "lib": ["dom", "dom.iterable", "es2017"],
     "typeRoots": ["./node_modules/@types", "./node_modules/@nationalbankbelgium/stark-build/typings"],
     "paths": {
-      "@angular/*": ["../node_modules/@angular/*"],
-      "@nationalbankbelgium/*": ["../node_modules/@nationalbankbelgium/*"]
+      "@uirouter/*": ["./showcase/node_modules/@uirouter/*"],
+      "@angular/material-moment-adapter": [
+        "./packages/stark-ui/node_modules/@angular/material-moment-adapter/esm5/material-moment-adapter.es5.js"
+      ],
+      "@angular/*": ["./showcase/node_modules/@angular/*"],
+      "@nationalbankbelgium/stark-ui": ["./packages/stark-ui/index.ts"],
+      "@nationalbankbelgium/*": ["./showcase/node_modules/@nationalbankbelgium/*"],
+      "moment": ["./packages/stark-core/node_modules/moment"],
+      "nouislider": ["./packages/stark-ui/node_modules/nouislider"],
+      "pretty-data": ["./packages/stark-ui/node_modules/pretty-data"],
+      "prismjs": ["./packages/stark-ui/node_modules/prismjs"],
+      "prismjs/*": ["./packages/stark-ui/node_modules/prismjs/*"]
     }
   },
   "exclude": ["node_modules", "dist", "src/assets"]

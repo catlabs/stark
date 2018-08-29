@@ -19,7 +19,7 @@
             "assets": [
               {
                 "glob": "mdi.svg",
-                "input": "../node_modules/@mdi/angular-material",
+                "input": "../node_modules/@nationalbankbelgium/stark-ui/node_modules/@mdi/angular-material",
                 "output": "./assets/material-icons"
               },
               {
