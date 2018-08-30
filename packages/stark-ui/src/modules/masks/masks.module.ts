@@ -1,8 +1,10 @@
 import { NgModule } from "@angular/core";
-import { StarkTimestampMaskDirective } from "./directives";
+import { StarkMaskDirective, StarkTimestampMaskDirective } from "./directives";
+import { StarkMaskService } from "./services";
 
 @NgModule({
-	declarations: [StarkTimestampMaskDirective],
-	exports: [StarkTimestampMaskDirective]
+	declarations: [StarkMaskDirective, StarkTimestampMaskDirective],
+	exports: [StarkMaskDirective, StarkTimestampMaskDirective],
+	providers: [StarkMaskService],
 })
 export class StarkMasksModule {}

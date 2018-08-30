@@ -23,7 +23,7 @@ import { LogoutComponent } from "./logout/logout.component";
 import { ExampleViewerComponent } from "./example-viewer/example-viewer.component";
 import { HeaderComponent } from "./header/header.component";
 import { KeyboardDirectivesComponent } from "./keyboard-directives/keyboard-directives.component";
-import { MasksComponent } from "./masks/masks.component";
+import { DemoMasksComponent } from "./masks/demo-masks.component";
 import { PrettyPrintComponent } from "./pretty-print/pretty-print.component";
 import { TableComponent } from "./table/table.component";
 import { SharedModule } from "../shared/shared.module";
@@ -82,7 +82,7 @@ import { MAT_DATE_FORMATS } from "@angular/material/core";
 		ExampleViewerComponent,
 		HeaderComponent,
 		KeyboardDirectivesComponent,
-		MasksComponent,
+		DemoMasksComponent,
 		PrettyPrintComponent,
 		DatePickerComponent,
 		DateRangePickerComponent,
@@ -101,7 +101,7 @@ import { MAT_DATE_FORMATS } from "@angular/material/core";
 		ExampleViewerComponent,
 		HeaderComponent,
 		KeyboardDirectivesComponent,
-		MasksComponent,
+		DemoMasksComponent,
 		PrettyPrintComponent,
 		TableComponent
 	],

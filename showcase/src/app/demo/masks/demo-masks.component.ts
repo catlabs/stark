@@ -4,19 +4,18 @@ import { FormControl } from "@angular/forms";
 
 @Component({
 	selector: "showcase-demo-masks",
-	templateUrl: "./masks.component.html"
+	templateUrl: "./demo-masks.component.html"
 })
-export class MasksComponent implements OnInit {
-	public name: string;
-	public nameFormControl: FormControl;
-	public titleFormControl: FormControl;
+export class DemoMasksComponent implements OnInit {
+	public dateFormControl: FormControl;
+	public numberFormControl: FormControl;
 
 	public constructor(@Inject(STARK_LOGGING_SERVICE) public logger: StarkLoggingService) {}
 
 	public ngOnInit(): void {
 		console.log("init");
 
-		//this.nameFormControl = new FormControl([ 'name' ]);
-		this.titleFormControl = new FormControl(["title"]);
+		this.dateFormControl = new FormControl("");
+		this.numberFormControl = new FormControl("");
 	}
 }

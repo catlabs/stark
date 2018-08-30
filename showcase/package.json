@@ -124,7 +124,7 @@
     "@angular/platform-browser-dynamic": "6.1.2",
     "@angular/platform-server": "6.1.2",
     "@angular/router": "6.1.2",
-    "@nationalbankbelgium/stark-core": "file:../dist/packages-dist/stark-core/nationalbankbelgium-stark-core-10.0.0-alpha.4-bf1eec9.tgz",
+    "@nationalbankbelgium/stark-core": "file:../dist/packages-dist/stark-core/nationalbankbelgium-stark-core-10.0.0-alpha.4-43c32a0.tgz",
     "@nationalbankbelgium/stark-ui": "../packages/stark-ui/",
     "@uirouter/visualizer": "6.0.2",
     "basscss": "^8.0.2",
@@ -141,8 +141,8 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "@nationalbankbelgium/stark-build": "file:../dist/packages-dist/stark-build/nationalbankbelgium-stark-build-10.0.0-alpha.4-bf1eec9.tgz",
-    "@nationalbankbelgium/stark-testing": "file:../dist/packages-dist/stark-testing/nationalbankbelgium-stark-testing-10.0.0-alpha.4-bf1eec9.tgz",
+    "@nationalbankbelgium/stark-build": "file:../dist/packages-dist/stark-build/nationalbankbelgium-stark-build-10.0.0-alpha.4-43c32a0.tgz",
+    "@nationalbankbelgium/stark-testing": "file:../dist/packages-dist/stark-testing/nationalbankbelgium-stark-testing-10.0.0-alpha.4-43c32a0.tgz",
     "@types/core-js": "2.5.0",
     "@types/hammerjs": "2.0.35",
     "@types/node": "8.10.15",

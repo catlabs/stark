@@ -1,6 +1,8 @@
-import { Directive, forwardRef, HostListener, Inject, Injector, Input, OnInit } from "@angular/core";
-import { ControlValueAccessor, NgControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Directive, Inject, Input, ElementRef } from "@angular/core";
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { STARK_LOGGING_SERVICE, StarkLoggingService } from "@nationalbankbelgium/stark-core";
+import { StarkMaskService } from "../services/mask.service";
+import { StarkMaskDirective } from "../directives/mask.directive";
 
 /**
  * Name of the directive
@@ -16,43 +18,24 @@ const directiveName: string = "[starkTimestampMask]";
 		{
 		  provide: NG_VALUE_ACCESSOR,
 		  multi: true,
-		  useExisting: forwardRef(() => StarkTimestampMaskDirective)
+		  useExisting: StarkTimestampMaskDirective
 		}
 	  ]
 })
-export class StarkTimestampMaskDirective implements OnInit, ControlValueAccessor {
-	/**
-	 * A valid regular expression that defines the allowed characters
-	 */
-	/* tslint:disable:no-input-rename */
+export class StarkTimestampMaskDirective extends StarkMaskDirective{
 	@Input("starkTimestampMask")
-	public maskFormat: string;
+	public mask: string;
 
-	public control: NgControl;
+	public onChange: Function;
 
-	// tslint:disable-next-line
-	public onChange = (val: string) => { 
-		console.log(val);
-	};
-	
-	public onTouch = () => {
-		console.log('onTouch');
-	};
-
-	@HostListener('input', ['$event'])
-    public onInput(e: KeyboardEvent): void {
-        const el: HTMLInputElement = (e.target as HTMLInputElement);
-        this.onChange(el.value);
-	}
-
-	/**
+    /**
 	 * Class constructor
 	 * @param logger - The logger of the application
 	 */
-	public constructor(@Inject(STARK_LOGGING_SERVICE) private logger: StarkLoggingService, private injector: Injector) {
-		this.control = this.injector.get(NgControl);
+	public constructor(@Inject(STARK_LOGGING_SERVICE) protected logger: StarkLoggingService, protected maskService: StarkMaskService, protected el: ElementRef) {
+		super(logger, maskService, el);
 	}
-
+	
 	/**
 	 * Directive lifecycle hook
 	 */
@@ -63,18 +46,30 @@ export class StarkTimestampMaskDirective implements OnInit, ControlValueAccessor
 		}*/
 	}
 
-	/** It writes the value in the input */
-    public writeValue(_inputValue: string): void {
-        
-    }
+	public applyMask(inputValue: string, maskExpression?: string, _position: number = 0): string {
+        if(maskExpression === undefined){
+            return inputValue;
+        }else if (inputValue === undefined || inputValue === null || maskExpression === undefined) {
+            return '';
+        }
 
-    // tslint:disable-next-line
-    public registerOnChange(fn: any): void {
-        this.onChange = fn;
-	}
-	
-	// tslint:disable-next-line
-    public registerOnTouched(fn: any): void {
-        this.onTouch = fn;
+        let cursor: number = 0;
+        let result: string = '';
+
+        const inputArray: string[] = inputValue.toString().split('');
+
+        for (let i: number = 0, inputSymbol: string = inputArray[0]; i< inputArray.length; i++, inputSymbol = inputArray[i]) {
+            if (cursor === maskExpression.length) {
+                break;
+            }
+        }
+        
+        return 'test';
+    }
+    
+    public unMask(inputValue: string): string {
+        return inputValue
+            ? inputValue.replace(super.regExpForRemove(this.maskHintCharacters), '')
+            : inputValue;
     }
 }

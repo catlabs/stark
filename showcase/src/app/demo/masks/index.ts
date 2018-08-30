@@ -1,1 +1,1 @@
-export * from "./masks.component";
+export * from "./demo-masks.component";
