@@ -45,31 +45,4 @@ export class StarkTimestampMaskDirective extends StarkMaskDirective{
 			this.control.control.setValue('dfdsfdsfffd', { emitEvent: false });
 		}*/
 	}
-
-	public applyMask(inputValue: string, maskExpression?: string, _position: number = 0): string {
-        if(maskExpression === undefined){
-            return inputValue;
-        }else if (inputValue === undefined || inputValue === null || maskExpression === undefined) {
-            return '';
-        }
-
-        let cursor: number = 0;
-        let result: string = '';
-
-        const inputArray: string[] = inputValue.toString().split('');
-
-        for (let i: number = 0, inputSymbol: string = inputArray[0]; i< inputArray.length; i++, inputSymbol = inputArray[i]) {
-            if (cursor === maskExpression.length) {
-                break;
-            }
-        }
-        
-        return 'test';
-    }
-    
-    public unMask(inputValue: string): string {
-        return inputValue
-            ? inputValue.replace(super.regExpForRemove(this.maskHintCharacters), '')
-            : inputValue;
-    }
 }
