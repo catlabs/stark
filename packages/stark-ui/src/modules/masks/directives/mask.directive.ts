@@ -9,7 +9,9 @@ import { StarkMaskService } from "../services/mask.service";
 export interface StarkMaskConfig {
     mask: string,
     placeholderChar: string,
-    separatorChars: Array<string>
+    prefix?: string,
+    separatorChars?: Array<string>,
+    suffix?: string
 }
 
 /**
@@ -78,12 +80,6 @@ export class StarkMaskDirective implements OnInit, ControlValueAccessor {
 	 */
     public ngOnInit(): void {
         this.logger.debug(directiveName + ": directive initialized");
-
-        this.starkMaskConfig = {
-            mask: '00/00/0000',
-            placeholderChar: '_',
-            separatorChars: ['/'],
-        };
     }
 
     public applyMask(inputValue: string, inputType: string): string {
@@ -99,7 +95,18 @@ export class StarkMaskDirective implements OnInit, ControlValueAccessor {
         let cursor: number = 0;
         let result: string = '';
 
-        const inputArray: string[] = inputValue.toString().split('');
+        //Create inputArray without prefix and suffix
+        let inputValueWithoutPrefixAndSuffix = inputValue;
+        if(this.starkMaskConfig.prefix && inputValueWithoutPrefixAndSuffix.substring(0,this.starkMaskConfig.prefix.length) == this.starkMaskConfig.prefix){
+            inputValueWithoutPrefixAndSuffix = inputValueWithoutPrefixAndSuffix.substring(this.starkMaskConfig.prefix.length, inputValue.length);
+            console.log('Clear prefix: '+inputValueWithoutPrefixAndSuffix);
+        }
+        if(this.starkMaskConfig.suffix && inputValueWithoutPrefixAndSuffix.substring(inputValueWithoutPrefixAndSuffix.length-this.starkMaskConfig.suffix.length, inputValueWithoutPrefixAndSuffix.length) == this.starkMaskConfig.suffix){
+            inputValueWithoutPrefixAndSuffix = inputValueWithoutPrefixAndSuffix.substring(0, inputValueWithoutPrefixAndSuffix.length - this.starkMaskConfig.suffix.length);
+            console.log('Clear suffix: '+inputValueWithoutPrefixAndSuffix);
+        }
+        const inputArray: string[] = inputValueWithoutPrefixAndSuffix.toString().split('');
+
         const placeholderArray: string[] = this.starkMaskConfig.mask.replace(new RegExp(Object.keys(this.maskAvailablePatterns).join('|'), 'gi'), this.starkMaskConfig.placeholderChar).split('');
 
         //Parse inputValue transformed in Array
@@ -115,7 +122,7 @@ export class StarkMaskDirective implements OnInit, ControlValueAccessor {
         }
 
         //Autocomplete following separator char(s)
-        if(inputType != "deleteContentBackward"){
+        if(inputType != "deleteContentBackward" && this.starkMaskConfig.separatorChars){
             while (this.starkMaskConfig.mask.length > cursor && this.starkMaskConfig.separatorChars.includes(this.starkMaskConfig.mask[cursor])) {
                 result += this.starkMaskConfig.mask[cursor];
                 cursor++;
@@ -132,6 +139,16 @@ export class StarkMaskDirective implements OnInit, ControlValueAccessor {
             result += placeholderChar;
             cursor++;
         }
+
+        //Add prefix
+        if(this.starkMaskConfig.prefix){
+            result = this.starkMaskConfig.prefix+result;
+            cursor = cursor + this.starkMaskConfig.prefix.length;
+        }
+
+        if(this.starkMaskConfig.suffix){
+            result += this.starkMaskConfig.suffix;
+        }
         
         return result;
     }
@@ -147,7 +164,7 @@ export class StarkMaskDirective implements OnInit, ControlValueAccessor {
         const nativeElement: HTMLInputElement = this.inputRef.nativeElement;
         nativeElement.value = inputValue;
         if(this.rawValue){
-            this.inputRef.nativeElement.selectionEnd = this.rawValue.length;
+            this.inputRef.nativeElement.selectionEnd = this.rawValue.length+(this.starkMaskConfig.prefix?this.starkMaskConfig.prefix.length:0);
         }
     }
 

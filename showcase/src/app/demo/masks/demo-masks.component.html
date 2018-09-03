@@ -1,9 +1,13 @@
 <mat-card>
-	<h2>template: 00/00/0000</h2>
-	<input type="text" [formControl]="dateFormControl" [starkMask]="'00/00/0000'">
-	Form Control value: {{ dateFormControl.value }}
+	<h2>template: 0000-0000-0000-0000</h2>
+	<input type="text" [formControl]="starkMaskConfig1FormControl" [starkMask]="starkMaskConfig1">
+	Form Control value: {{ starkMaskConfig1FormControl.value }}
 	<br><br>
-	<h2>template: 000.000.000</h2>
-	<input type="text" [formControl]="numberFormControl" [starkMask]="'000.000.000'">
-	Form Control value: {{ numberFormControl.value }}
+	<h2>template: +++000.0000.00000+++</h2>
+	<input type="text" [formControl]="starkMaskConfig2FormControl" [starkMask]="starkMaskConfig2">
+	Form Control value: {{ starkMaskConfig2FormControl.value }}
+	<br><br>
+	<h2>template: 000000</h2>
+	<input type="text" [formControl]="starkMaskConfig3FormControl" [starkMask]="starkMaskConfig3">
+	Form Control value: {{ starkMaskConfig3FormControl.value }}
 </mat-card>
